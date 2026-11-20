@@ -1,3 +1,231 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>见微 — 看懂设计背后的为什么</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0c1014;color:#e9ede9;font-family:Arial,'Microsoft YaHei',sans-serif}a{color:inherit;text-decoration:none}header{height:80px;display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:auto;padding:0 7%;border-bottom:1px solid #ffffff1c}.logo{font-size:25px;font-weight:bold;letter-spacing:4px}.logo small{font-size:10px;color:#9ca8a3;letter-spacing:2px;margin-left:10px}nav{display:flex;gap:38px;font-size:14px;color:#aeb8b2}nav a:hover{color:#c4f069}.toplink{border:1px solid #526057;border-radius:30px;padding:11px 19px;font-size:13px}.hero{max-width:1440px;margin:auto;min-height:620px;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 7%;overflow:hidden}.eyebrow{color:#c5ef78;font-size:12px;letter-spacing:3px}.hero h1{font-size:clamp(48px,6vw,84px);line-height:1.18;letter-spacing:4px;margin:32px 0 22px}.hero h1 span{color:#c7ef80}.hero p{color:#a6b0ac;line-height:2;font-size:15px;max-width:470px}.button{display:inline-block;background:#c5ee7a;color:#141a11;padding:17px 25px;border-radius:3px;margin-top:26px;font-size:14px;font-weight:bold}.button span{margin-left:35px}.visual{height:480px;position:relative;display:grid;place-items:center}.orb{width:min(35vw,420px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#b8dfb4 0,#557f79 15%,#213d40 42%,#101b22 67%,#0a1015 73%);box-shadow:0 0 95px #608b6a25;position:relative}.orb:before,.orb:after{content:'';position:absolute;border:1px solid #adc2ab38;border-radius:50%;inset:-35px;transform:rotate(-25deg) scaleY(.54)}.orb:after{inset:-67px;transform:rotate(29deg) scaleY(.62)}.visual-label{position:absolute;bottom:34px;right:0;color:#778a83;font-size:11px;letter-spacing:2px}.ticker{border-block:1px solid #ffffff1c;padding:21px 7%;color:#9fa9a3;font-size:12px;letter-spacing:2px;display:flex;justify-content:space-between;gap:20px}.ticker b{color:#c5ef78}.section{max-width:1440px;margin:auto;padding:100px 7%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}.section h2{font-size:36px;letter-spacing:2px;margin:14px 0}.muted{color:#89968f;font-size:14px;line-height:1.8}.categories{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #ffffff20}.category{padding:30px;min-height:210px;border-right:1px solid #ffffff20;transition:.2s}.category:last-child{border:0}.category:hover{background:#18221d}.number{color:#bde878;font-size:12px}.category h3{font-size:22px;margin:50px 0 9px}.category p{margin:0;color:#89968f;font-size:13px}.articles{background:#111719}.articles .section{padding-top:85px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{border:1px solid #ffffff1b;background:#151d1d}.art{height:190px;display:flex;align-items:end;padding:18px;background:radial-gradient(ellipse at 70% 30%,#657e79,#1b3134 36%,#11191c 73%)}.card:nth-child(2) .art{background:radial-gradient(ellipse at 50% 70%,#718355,#283d32 35%,#151d1b 72%)}.card:nth-child(3) .art{background:radial-gradient(ellipse at 65% 30%,#59727f,#233640 35%,#151b20 72%)}.art span{font-size:11px;letter-spacing:2px;color:#d3e2d5}.card-body{padding:23px}.card-body h3{font-size:19px;line-height:1.5;margin:12px 0}.card-body p{color:#8e9c95;font-size:13px;line-height:1.8}.card-body small{color:#b9d98c}.footer{padding:55px 7%;max-width:1440px;margin:auto;display:flex;justify-content:space-between;color:#84928a;font-size:12px;line-height:2}.footer strong{color:#e7eee7;font-size:20px;letter-spacing:4px}@media(max-width:750px){header{height:68px}nav{gap:15px;font-size:12px}.toplink{display:none}.hero{grid-template-columns:1fr;padding-top:60px}.visual{height:330px}.orb{width:250px}.ticker span:nth-child(n+3){display:none}.section{padding:70px 7%}.categories{grid-template-columns:1fr 1fr}.category{border-bottom:1px solid #ffffff20}.cards{grid-template-columns:1fr}.footer{gap:20px;flex-direction:column}.section h2{font-size:28px}}
-:focus-visible{outline:2px solid #c5ee7a;outline-offset:6px}section,article{scroll-margin-top:28px}.hero h1{font-size:clamp(40px,5.1vw,72px);letter-spacing:1px}.visual{padding-left:40px}.design-poster{width:100%;max-width:400px;background:#d9decc;color:#18251b;padding:22px;transform:rotate(5deg);box-shadow:18px 20px 0 #27332b}.poster-top{display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;border-bottom:1px solid #17261e;padding-bottom:14px}.poster-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px 0}.poster-grid>div{aspect-ratio:1}.shape-circle{border-radius:50%;background:#c56043;box-shadow:inset -22px -10px 0 #ab4e35}.shape-type{display:grid;place-items:center;font:100px Georgia,serif;letter-spacing:-9px}.shape-lines{background:repeating-linear-gradient(135deg,#243d2c 0 4px,transparent 4px 13px)}.shape-arch{background:#344b3b;border-radius:100px 100px 0 0;position:relative}.shape-arch:after{content:'';position:absolute;inset:32px 32px 0;background:#d9decc;border-radius:100px 100px 0 0}.poster-bottom{border-top:1px solid #17261e;padding-top:16px;font-size:21px;font-weight:bold;letter-spacing:3px}.poster-bottom small{display:block;font-size:8px;letter-spacing:2px;margin-top:8px}.visual-label{bottom:-8px;font-size:9px}.category h3{font-size:21px}.art.color-art{padding:0;display:flex;background:none}.color-art>div{height:100%;width:50%;display:grid;place-items:center;background:#252b29}.color-art>div+div{background:#e1e4d9}.color-art i{display:block;background:#888;width:54px;height:54px}.card .type-art{background:#d0d5c5;justify-content:space-around;align-items:center}.type-art span{font-size:90px;color:#20342b}.type-art span:first-child{font-family:'SimSun',serif}.type-art span:last-child{font-family:'Microsoft YaHei',sans-serif;font-weight:900}.card .layout-art{background:#b9d982;color:#18251b;align-items:center;justify-content:space-between;padding:28px}.layout-art b{font-size:28px;line-height:1;letter-spacing:-1px}.layout-art i{display:block;width:110px;height:3px;background:#526448;margin-top:10px}.layout-art i:last-child{width:75px}.layout-art span{color:#34482b;font-size:10px;line-height:2}.thinking{display:grid;grid-template-columns:1fr 1fr;gap:50px}.thinking h2{font-size:30px}.questions{list-style:none;padding:0;margin:0}.questions li{display:flex;gap:25px;padding:20px 0;border-top:1px solid #ffffff20}.questions li>span{color:#c5ee7a;font-size:12px;padding-top:4px}.questions h3{margin:0;font-size:18px}.questions p{color:#9eaaa2;font-size:13px;line-height:1.8;margin-bottom:0}.experiment{border-top:1px solid #ffffff20;padding-top:65px}.lab{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center}.controls label{display:flex;justify-content:space-between;font-size:14px}.controls output{color:#c5ee7a;font:13px monospace}.controls input{width:100%;accent-color:#c5ee7a;margin:24px 0}.controls button{background:transparent;border:1px solid #65715f;border-radius:3px;color:#dbe4d6;padding:10px 15px;cursor:pointer}.sample{padding:30px;background:#d9decc;color:#21362b;display:flex;flex-direction:column;gap:24px}.sample>*{margin:0}.sample small{font-size:10px;letter-spacing:2px}.sample h3{font-size:25px}.sample p{font-size:14px;line-height:1.8}.sample>span{font-size:12px;border-top:1px solid #21362b40;padding-top:14px}.footer{border-top:1px solid #ffffff20}@media(max-width:750px){.hero h1{font-size:clamp(36px,8vw,60px)}.visual{height:430px;padding:35px 25px}.design-poster{max-width:300px;padding:17px}.shape-type{font-size:75px}.visual-label{bottom:0}.thinking,.lab{grid-template-columns:1fr;gap:30px}.category{padding:22px}.category h3{font-size:18px}.section-head{display:block}.section-head>span{display:none}.logo small{display:none}nav{gap:13px}.section h2{font-size:26px}.thinking{padding-bottom:65px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style></head><body><header><a class="logo" href="#">见微<small>DESIGN NOTES</small></a><nav><a href="#topics">设计基础</a><a href="#stories">设计拆解</a><a href="#about">关于我们</a></nav><a class="toplink" href="#topics">开始探索 ↗</a></header><main><section class="hero"><div><div class="eyebrow">DESIGN IS EVERYWHERE</div><h1>不止看见美，<br><span>更看懂设计。</span></h1><p>一张海报、一款字体、一个顺手的按钮。<br>从身边的细节出发，用简单的语言，讲清设计背后的逻辑。</p><a class="button" href="#topics">从基础开始 <span>↗</span></a></div><div class="visual" aria-hidden="true"><div class="design-poster"><div class="poster-top">见微 / VISUAL STUDIES <span>VOL. 01</span></div><div class="poster-grid"><div class="shape-circle"></div><div class="shape-type">Aa</div><div class="shape-lines"></div><div class="shape-arch"></div></div><div class="poster-bottom">美，有迹可循。<small>MAKE SENSE OF DESIGN.</small></div></div><div class="visual-label">COLOR · TYPE · SPACE · THINKING</div></div></section><div class="ticker"><span><b>✳</b> 培养观察力</span><span>DESIGN FOR EVERYONE</span><span>看见 · 理解 · 尝试</span><span>在日常里发现设计 ↗</span></div><section class="section" id="topics"><div class="section-head"><div><div class="eyebrow">01 / THE FUNDAMENTALS</div><h2>看懂设计，从这四件事开始</h2><div class="muted">不需要专业背景，先建立属于自己的设计观察方式。</div></div><span class="muted">设计基础 ↓</span></div><div class="categories"><a class="category" href="#color"><span class="number">01 / COLOR ↗</span><h3>色彩与感知</h3><p>配色、对比，以及视觉的第一印象</p></a><a class="category" href="#type"><span class="number">02 / TYPOGRAPHY ↗</span><h3>字体与表达</h3><p>字形、字重，以及文字的语气</p></a><a class="category" href="#layout"><span class="number">03 / LAYOUT ↗</span><h3>版式与秩序</h3><p>网格、留白，以及信息的层次</p></a><a class="category" href="#thinking"><span class="number">04 / THINKING ↗</span><h3>设计与思考</h3><p>从发现问题，到找到合适的解法</p></a></div></section><div class="articles" id="stories"><section class="section"><div class="section-head"><div><div class="eyebrow">02 / LOOK CLOSER</div><h2>把“好看”，拆开来理解</h2><div class="muted">从一个具体问题入手，认识一个设计概念。</div></div></div><div class="cards"><article class="card" id="color"><div class="art color-art" aria-label="相同的灰色方块分别置于深色与浅色背景"><div><i></i></div><div><i></i></div></div><div class="card-body"><small>色彩与感知 · 入门笔记</small><h3>为什么同一种颜色，看起来不一样？</h3><p>下面两个小方块都是同一种灰色。周围背景不同，会影响我们对它们明暗的感受。</p></div></article><article class="card" id="type"><div class="art type-art" aria-label="同样的字，分别用衬线与无衬线字体展示"><span>字</span><span>字</span></div><div class="card-body"><small>字体与表达 · 入门笔记</small><h3>字体，也有自己的“语气”吗？</h3><p>同样的文字，换一种字形和字重，就可能带来不同的阅读感受。选择字体，也是在选择表达方式。</p></div></article><article class="card" id="layout"><div class="art layout-art" aria-hidden="true"><div><b>LESS,<br>BUT BETTER.</b><i></i><i></i><i></i></div><span>01<br>—<br>ORDER</span></div><div class="card-body"><small>版式与秩序 · 入门笔记</small><h3>为什么有的页面，一眼就能看懂？</h3><p>标题、正文和辅助信息，可以通过大小、间距和位置建立层次。先决定读者应该先看到什么。</p></div></article></div></section></div><section class="section thinking" id="thinking"><div><div class="eyebrow">03 / THINK LIKE A DESIGNER</div><h2>先问为什么，再想怎么做。</h2><p class="muted">设计思考的起点，是理解人、情境和问题。<br>试着用这三个问题，重新观察一个你每天使用的物品。</p></div><ol class="questions"><li><span>01</span><div><h3>它为谁而设计？</h3><p>使用者是谁？他们会在什么场景下使用？</p></div></li><li><span>02</span><div><h3>它想解决什么问题？</h3><p>它最重要的功能是什么？有哪些使用障碍？</p></div></li><li><span>03</span><div><h3>还能怎样改进？</h3><p>提出一个小改动，再观察它是否真的更好用。</p></div></li></ol></section><section class="section experiment" id="experiment"><div class="section-head"><div><div class="eyebrow">04 / TRY IT YOURSELF</div><h2>动手试试：留白的力量</h2><p class="muted">拖动滑块，观察同一段内容的呼吸感如何变化。</p></div></div><div class="lab"><div class="controls"><label for="spacing">内容间距 <output id="spacing-value" for="spacing">24 px</output></label><input id="spacing" type="range" min="4" max="48" value="24"><p class="muted">留白帮助区分内容。间距是否合适，还要结合内容长度、屏幕大小与阅读任务来判断。</p><button id="reset" type="button">恢复默认 ↺</button></div><div class="sample" id="sample"><small>DESIGN NOTE / 01</small><h3>让信息有呼吸的空间。</h3><p>把相关内容放近一些，让不同内容之间留出空间。好的间距，可以帮助读者理解信息之间的关系。</p><span>观察细节 →</span></div></div></section></main><footer class="footer" id="about"><div><strong>见微</strong><p>看懂设计背后的为什么。</p></div><div>面向每一个好奇的人的设计科普空间<br>© 见微 DESIGN NOTES</div></footer><script>const slider=document.getElementById('spacing');function updateSpacing(){document.getElementById('sample').style.gap=slider.value+'px';document.getElementById('spacing-value').textContent=slider.value+' px';}slider.addEventListener('input',updateSpacing);document.getElementById('reset').addEventListener('click',()=>{slider.value=24;updateSpacing();});</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b1917">
+<title>见微 · 设计观察手记</title>
+<style>
+:root {
+  --ink: #1b1917;
+  --paper: #f1ede4;
+  --muted: #b7b0a6;
+  --rule: #49443e;
+  --red: #e46f53;
+  --serif: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--ink); color: var(--paper); font: 1rem/1.75 "Microsoft YaHei", "PingFang SC", sans-serif }
+a { color: inherit; text-decoration: none }
+a:hover, button:hover { color: var(--red) }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 4px }
+.wrap { width: min(1240px, 88%); margin-inline: auto }
+header { border-bottom: 1px solid var(--rule) }
+.bar, nav, .identity, .heading, footer .wrap { display: flex; align-items: center }
+.bar { min-height: 78px; justify-content: space-between; gap: 24px }
+.identity { gap: 12px }
+.identity strong { font: 700 2rem/1 var(--serif); letter-spacing: .07em }
+.mark { display: inline-block; width: 23px; height: 23px; background: repeating-linear-gradient(115deg, var(--red) 0 4px, transparent 4px 7px); border-radius: 50% }
+.identity small, .caption, .topic em, .folio { font: .78rem/1.5 "IBM Plex Mono", Consolas, monospace; letter-spacing: .1em }
+.identity small { border-left: 1px solid var(--rule); padding-left: 12px; color: var(--muted) }
+nav { gap: clamp(15px, 3vw, 40px); font-size: .9rem }
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; align-items: center; padding-block: clamp(38px,5vw,78px) }
+.kicker { display: flex; align-items: center; gap: 12px; color: var(--red); letter-spacing: .15em; font-size: .88rem }
+.kicker::before { content: ""; width: 32px; height: 2px; background: currentColor }
+h1, h2, h3, p, figure { margin: 0 }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500 }
+h1 { font-size: clamp(3rem, 5.8vw, 5.5rem); line-height: 1.24; letter-spacing: -.055em; margin: 23px 0 24px }
+h1 i { color: var(--red); font-style: normal }
+.intro { max-width: 29em; color: var(--muted); line-height: 1.95 }
+.actions { display: flex; align-items: center; gap: 24px; margin-top: 30px; flex-wrap: wrap }
+.cta { padding: 10px 23px; background: var(--paper); color: var(--ink); font-weight: 600 }
+.cta:hover { background: #fff; color: #903e2f }
+.text-link { border-bottom: 1px solid #8c8176; font-size: .94rem }
+.cover { position: relative; isolation: isolate; color: #23201d; background: #e3dccd; overflow: hidden; aspect-ratio: 1.17; padding: 5%; display: grid; grid-template-rows: auto 1fr auto }
+.cover::after { content: ""; position: absolute; inset: 0; pointer-events:none; background-image: repeating-linear-gradient(0deg,transparent 0 3px,#5e4c3410 3px 4px); opacity:.29 }
+.cover-head, .cover-foot { display:flex; justify-content:space-between; align-items:baseline; font: .78rem/1.5 Consolas,monospace; letter-spacing:.06em }
+.cover-head { border-bottom:1px solid #877e71; padding-bottom:8px }
+.cover-foot { border-top:1px solid #877e71; padding-top:8px }
+.cover-foot b { font:italic clamp(23px,2.6vw,43px)/1 Georgia,serif }
+.artwork { position:relative; min-height:0 }
+.artwork canvas { position:absolute; width:100%; height:100%; inset:0 }
+.caption { color:var(--muted); margin-top:8px; letter-spacing:.02em }
+.directory { border-block: 1px solid var(--rule); padding: 18px 0 23px }
+.heading { justify-content:space-between; gap:16px; align-items:baseline; margin-bottom:24px }
+.heading h2, .section h2 { font-size: clamp(1.8rem, 3vw, 3rem); line-height:1.35 }
+.directory .heading { margin-bottom:14px }
+.directory h2 { font-family:inherit; font-size:.95rem; color:var(--muted) }
+.topics { display:grid; grid-template-columns:repeat(4,1fr) }
+.topic { border-left:1px solid var(--rule); padding-left:24px; display:grid; gap:3px }
+.topic:first-child { border:0; padding-left:0 }
+.topic em { font-style:normal; color:var(--muted); font-size:.75rem }
+.topic strong { font:500 clamp(1.1rem,2vw,1.6rem)/1.5 var(--serif) }
+.section { padding-block:clamp(44px,6vw,84px); border-bottom:1px solid var(--rule) }
+.folio { color:var(--muted) }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(18px,3vw,40px) }
+.study { height:clamp(145px,15vw,214px); margin:0 0 20px; display:flex; align-items:center; justify-content:center; overflow:hidden }
+.color { background:linear-gradient(90deg,#484540 50%,#cecabf 50%); justify-content:space-around }
+.color i { background:#93918b; width:20%; aspect-ratio:1 }
+.type { background:#d5cbba; color:#252320; gap:10%; font-size:clamp(4rem,6vw,6rem); line-height:1 }
+.type span:first-child { font-family:var(--serif) }
+.type span:last-child { font-weight:900 }
+.layout { background:#b9b3a8; color:#292722; padding:20px; gap:16px }
+.layout strong { font:bold clamp(1.6rem,3vw,3rem)/.95 Arial,sans-serif; letter-spacing:-.07em }
+.layout i { height:64%; width:16%; background:repeating-linear-gradient(0deg,#292722 0 2px,transparent 2px 7px) }
+article small { color:var(--red); font-size:.85rem }
+article h3, .questions h3 { font-size:clamp(1.25rem,1.8vw,1.65rem); margin:6px 0 8px; line-height:1.45 }
+article p, .section p { color:var(--muted); line-height:1.9 }
+.split { display:grid; grid-template-columns: .9fr 1.1fr; gap:9% }
+.split h2 { margin:12px 0 }
+.questions { list-style:decimal-leading-zero; padding-left:2.5em; margin:0 }
+.questions li { border-bottom:1px solid var(--rule); padding:13px 0 15px 8px }
+.questions li:first-child { padding-top:0 }
+.questions li::marker { color: var(--red); font:italic 1.2rem Georgia,serif }
+.controls { margin-top:24px }
+.controls label { display:flex; justify-content:space-between }
+input[type=range] { width:100%; accent-color:var(--red); margin:12px 0 }
+button { font:inherit; background:transparent; color:var(--paper); border:1px solid var(--rule); padding:5px 14px; cursor:pointer }
+.sample { display:flex; flex-direction:column; align-self:start; padding:clamp(24px,4vw,56px); gap:24px; background:var(--paper); color:var(--ink); border-top:4px solid #af4c35 }
+.sample h3 { font-size:clamp(1.7rem,3vw,2.7rem); line-height:1.3 }
+.sample p { color:#49453e }
+footer .wrap { padding-block:32px; justify-content:space-between; gap:16px; flex-wrap:wrap }
+footer p { color:var(--muted); font-size:.9rem }
+@media(max-width:760px) {
+  .wrap { width:90% }
+  .identity small { display:none }
+  .bar { min-height:62px; gap:12px }
+  nav { gap:14px; font-size:.85rem }
+  .hero { grid-template-columns:1fr; gap:32px }
+  .cover { aspect-ratio:1.35 }
+  .topics { grid-template-columns:repeat(2,1fr); gap:20px 0 }
+  .topic:nth-child(3) { border:0; padding-left:0 }
+  .cards,.split { grid-template-columns:1fr; gap:30px }
+  .study { height:175px }
+  .folio { font-size:.75rem }
+}
+@media(max-width:365px) {
+  .identity { gap:6px }
+  .identity strong { font-size:1.55rem }
+  nav { gap:9px }
+}
+</style>
+</head>
+<body id="top">
+<header><div class="wrap bar">
+  <a class="identity" href="#top"><span class="mark" aria-hidden="true"></span><strong>见微</strong><small>DESIGN NOTES</small></a>
+  <nav aria-label="主导航"><a href="#topics">栏目目录</a><a href="#stories">设计拆解</a><a href="#experiment">留白实验</a></nav>
+</div></header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <p class="kicker">见微设计手记</p>
+    <h1>看见设计的<br>细微之处<i>。</i></h1>
+    <p class="intro">海报里的一抹红，书页边的一寸留白。<br>从日常的视觉细节，读懂色彩、字体与版式。</p>
+    <div class="actions"><a class="cta" href="#stories">阅读设计拆解</a><a class="text-link" href="#experiment">试一试留白</a></div>
+  </div>
+  <figure>
+    <div class="cover">
+      <div class="cover-head"><span>形态研究</span><span>FORM STUDY</span></div>
+      <div class="artwork"><canvas id="fold" width="720" height="470" role="img" aria-label="纸色底上的黑色折带环绕一轮朱红圆形，疏密渐变的线条呈现折面的转向。"></canvas></div>
+      <div class="cover-foot"><b>Fold</b><span>折面与负形</span></div>
+    </div>
+    <figcaption class="caption">封面习作《折面》</figcaption>
+  </figure>
+</section>
+<section class="directory" id="topics">
+  <div class="heading"><h2>栏目目录</h2></div>
+  <div class="topics">
+    <a class="topic" href="#color"><em>COLOR</em><strong>色彩与感知</strong></a>
+    <a class="topic" href="#type"><em>TYPOGRAPHY</em><strong>字体与表达</strong></a>
+    <a class="topic" href="#layout"><em>LAYOUT</em><strong>版式与秩序</strong></a>
+    <a class="topic" href="#thinking"><em>THINKING</em><strong>设计与思考</strong></a>
+  </div>
+</section>
+<section class="section" id="stories">
+  <div class="heading"><h2>设计拆解</h2><span class="folio" lang="en">Visual studies</span></div>
+  <div class="cards">
+    <article id="color"><div class="study color" aria-hidden="true"><i></i><i></i></div>
+      <small>色彩与感知</small><h3>同一种灰，为何有深有浅？</h3>
+      <p>把手指搭在两块底色的交界处，分别看左右的小方块。两者用的是同一种灰，周围的明暗却改变了它们给人的印象。</p></article>
+    <article id="type"><div class="study type" aria-hidden="true"><span>字</span><span>字</span></div>
+      <small>字体与表达</small><h3>字形也有语气吗？</h3>
+      <p>看横画的末端。宋体在收笔处留有棱角，粗黑体的笔画更厚实。给同一张海报换个标题字体，读到的语气也会跟着变。</p></article>
+    <article id="layout"><div class="study layout" aria-hidden="true"><strong>LESS,<br>BUT BETTER.</strong><i></i></div>
+      <small>版式与秩序</small><h3>你的目光先停在哪里？</h3>
+      <p>大字先吸引目光，小字接着补充细节。排版前先挑出读者最需要知道的那句话，再为它分配字号、位置和留白。</p></article>
+  </div>
+</section>
+<section class="section split" id="thinking">
+  <div><span class="folio">设计与思考</span><h2>观察一件日用品</h2><p>拿起桌上的杯子，从三个问题开始观察。</p></div>
+  <ol class="questions">
+    <li><h3>谁会用它？</h3><p>想象有人单手端起它。杯身的重量、把手的大小，是否适合这只手？</p></li>
+    <li><h3>哪里费力？</h3><p>从拿起到放下，留意手指在哪一步换了位置。那个小动作可能就是线索。</p></li>
+    <li><h3>怎样知道改进有效？</h3><p>画一个更宽的把手，用纸做成等大的模型，请同一个人再握一次。</p></li>
+  </ol>
+</section>
+<section class="section split" id="experiment">
+  <div><span class="folio">版式练习</span><h2>留白实验</h2><p>拖动滑块，观察同一页手记里，标题与正文的关系如何随间距改变。</p>
+    <div class="controls"><label for="spacing">内容间距 <output id="spacing-value" for="spacing">24 px</output></label>
+    <input id="spacing" type="range" min="4" max="48" value="24"><button type="button" id="reset">恢复默认</button></div>
+  </div>
+  <div id="sample" class="sample"><small>见微 · 排版手记</small><h3>把空白也算进去。</h3><p>相邻的文字容易被读成一组。拉开标题与正文的距离，再慢慢收拢，找一找两者既有区别、又属于同一组的位置。</p></div>
+</section>
+</main>
+<footer id="about"><div class="wrap"><p>见微 · 一本关于日常设计的观察手记</p><a class="text-link" href="#top">回到封面</a></div></footer>
+<script>
+// Project a half-twisted paper ribbon. Paint the furthest folds first.
+const canvas = document.querySelector('#fold');
+const brush = canvas.getContext('2d');
+function ribbonPoint(angle, offset) {
+  const radius = 171 + offset * Math.cos(angle / 2 + .5);
+  const x = radius * Math.cos(angle);
+  const y = radius * Math.sin(angle);
+  const z = offset * Math.sin(angle / 2 + .5);
+  const height = .64 * y - .77 * z;
+  return {
+    x: 350 + 1.22 * (.93 * x + .37 * height),
+    y: 242 + 1.22 * (-.37 * x + .93 * height),
+    depth: .77 * y + .64 * z
+  };
+}
+if (brush) {
+  brush.fillStyle = '#ba4e36';
+  brush.beginPath();
+  brush.arc(465, 149, 92, 0, Math.PI * 2);
+  brush.fill();
+  const facets = [];
+  for (let index = 0; index < 154; index++) {
+    const angle = index * Math.PI * 2 / 154;
+    const end = (index + 1) * Math.PI * 2 / 154;
+    const corners = [ribbonPoint(angle,-78), ribbonPoint(angle,78), ribbonPoint(end,78), ribbonPoint(end,-78)];
+    facets.push({corners, index, depth: corners.reduce((sum,p) => sum + p.depth,0) / 4});
+  }
+  facets.sort((a,b) => a.depth - b.depth);
+  for (const {corners, index} of facets) {
+    brush.fillStyle = index % 2 ? '#272522' : '#a9a393';
+    brush.beginPath();
+    brush.moveTo(corners[0].x,corners[0].y);
+    for (const p of corners.slice(1)) brush.lineTo(p.x,p.y);
+    brush.closePath();
+    brush.fill();
+    brush.strokeStyle = brush.fillStyle;
+    brush.lineWidth = .65;
+    brush.stroke();
+  }
+}
+const slider = document.querySelector('#spacing');
+const sample = document.querySelector('#sample');
+const readout = document.querySelector('#spacing-value');
+function updateSpacing() {
+  sample.style.gap = slider.value + 'px';
+  readout.value = slider.value + ' px';
+}
+slider.addEventListener('input', updateSpacing);
+document.querySelector('#reset').addEventListener('click', () => {
+  slider.value = 24;
+  updateSpacing();
+});
+</script>
+</body>
+</html>
