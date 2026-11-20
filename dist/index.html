@@ -82,8 +82,26 @@ article p, .section p { color:var(--muted); line-height:1.9 }
 .questions li { border-bottom:1px solid var(--rule); padding:13px 0 15px 8px }
 .questions li:first-child { padding-top:0 }
 .questions li::marker { color: var(--red); font:italic 1.2rem Georgia,serif }
-.controls { margin-top:24px }
-.controls label { display:flex; justify-content:space-between }
+.bench { margin-top: 26px; border: 1px solid var(--rule); background:#211f1c }
+.modes { display:flex; flex-wrap:wrap; margin:0; padding:0; min-width:0; border:0; border-bottom:1px solid var(--rule) }
+.modes label { flex:1; text-align:center; min-width:5em; position:relative; cursor:pointer }
+.modes span { display:block; padding:12px 5px; border-bottom:2px solid transparent }
+.modes input:checked + span { background:#302724; color:#ff9a7f; border-color:var(--red) }
+.modes input:focus-visible + span { outline:2px solid var(--red); outline-offset:-4px }
+.sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0 }
+.station { display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.3fr); gap:clamp(24px,5vw,70px); padding:clamp(18px,4vw,46px) }
+.controls { border:0; padding:0; margin:0; min-width:0 }
+.controls legend { font:500 1.45rem/1.4 var(--serif); padding:0; margin-bottom:8px }
+.controls p { margin-bottom:18px }
+.controls label { display:flex; align-items:center; gap:10px; justify-content:space-between; margin-top:10px }
+.controls output, .ratio { font-variant-numeric:tabular-nums }
+.controls select { font:inherit; padding:.3em .5em; background:var(--ink); color:var(--paper); border:1px solid var(--rule) }
+.controls input[type=color] { width:3.5rem; height:2.2rem; border:1px solid var(--rule); cursor:pointer; background:none }
+.ratio { display:block; margin:16px 0; color:var(--red) }
+.lab-footer { display:flex; flex-wrap:wrap; align-items:center; gap:15px; border-top:1px solid var(--rule); padding-top:16px; margin-top:15px }
+.lab-footer input { accent-color:var(--red) }
+.preview-title { margin-bottom:10px; color:var(--muted); font-size:.9rem }
+@media(max-width:760px) { .station { grid-template-columns:minmax(0,1fr) } }
 input[type=range] { width:100%; accent-color:var(--red); margin:12px 0 }
 button { font:inherit; background:transparent; color:var(--paper); border:1px solid var(--rule); padding:5px 14px; cursor:pointer }
 .sample { display:flex; flex-direction:column; align-self:start; padding:clamp(24px,4vw,56px); gap:24px; background:var(--paper); color:var(--ink); border-top:4px solid #af4c35 }
@@ -114,7 +132,7 @@ footer p { color:var(--muted); font-size:.9rem }
 <body id="top">
 <header><div class="wrap bar">
   <a class="identity" href="#top"><span class="mark" aria-hidden="true"></span><strong>见微</strong><small>DESIGN NOTES</small></a>
-  <nav aria-label="主导航"><a href="#topics">栏目目录</a><a href="#stories">设计拆解</a><a href="#experiment">留白实验</a></nav>
+  <nav aria-label="主导航"><a href="#topics">栏目目录</a><a href="#stories">设计拆解</a><a href="#experiment">设计实验区</a></nav>
 </div></header>
 <main class="wrap">
 <section class="hero">
@@ -122,7 +140,7 @@ footer p { color:var(--muted); font-size:.9rem }
     <p class="kicker">见微设计手记</p>
     <h1>看见设计的<br>细微之处<i>。</i></h1>
     <p class="intro">海报里的一抹红，书页边的一寸留白。<br>从日常的视觉细节，读懂色彩、字体与版式。</p>
-    <div class="actions"><a class="cta" href="#stories">阅读设计拆解</a><a class="text-link" href="#experiment">试一试留白</a></div>
+    <div class="actions"><a class="cta" href="#stories">阅读设计拆解</a><a class="text-link" href="#experiment">进入设计实验区</a></div>
   </div>
   <figure>
     <div class="cover">
@@ -164,12 +182,44 @@ footer p { color:var(--muted); font-size:.9rem }
     <li><h3>怎样知道改进有效？</h3><p>画一个更宽的把手，用纸做成等大的模型，请同一个人再握一次。</p></li>
   </ol>
 </section>
-<section class="section split" id="experiment">
-  <div><span class="folio">版式练习</span><h2>留白实验</h2><p>拖动滑块，观察同一页手记里，标题与正文的关系如何随间距改变。</p>
-    <div class="controls"><label for="spacing">内容间距 <output id="spacing-value" for="spacing">24 px</output></label>
-    <input id="spacing" type="range" min="4" max="48" value="24"><button type="button" id="reset">恢复默认</button></div>
+<section class="section" id="experiment" aria-labelledby="lab-title">
+  <div class="heading"><h2 id="lab-title">设计实验区</h2><span class="folio" lang="en">Design lab</span></div>
+  <p>在同一张样稿上调配色、改字形、挪间距。切换实验时，改动会叠加在样稿上。</p>
+  <div class="bench">
+    <fieldset class="modes"><legend class="sr">选择实验</legend>
+      <label><input class="sr" type="radio" name="mode" value="space" checked><span>版式留白</span></label>
+      <label><input class="sr" type="radio" name="mode" value="palette"><span>配色对比</span></label>
+      <label><input class="sr" type="radio" name="mode" value="letter"><span>字体排印</span></label>
+    </fieldset>
+    <div class="station">
+      <div>
+        <fieldset class="controls" id="space"><legend>调整留白</legend>
+          <p>先让几行字靠近，再慢慢拉开。观察标题和正文什么时候开始像两个独立的段落。</p>
+          <label for="spacing">段间距 <output id="spacing-value" for="spacing">24 px</output></label>
+          <input id="spacing" type="range" min="4" max="48" value="24">
+          <label for="inset">页边距 <output id="inset-value" for="inset">28 px</output></label>
+          <input id="inset" type="range" min="12" max="48" value="28">
+        </fieldset>
+        <fieldset class="controls" id="palette" hidden><legend>调整配色</legend>
+          <p>只改变纸色，观察同一行字的清晰度。下方数值越接近 1，两种颜色的相对亮度越接近。</p>
+          <label for="ink">文字颜色<input id="ink" type="color" value="#211e1b"></label>
+          <label for="paper">纸张颜色<input id="paper" type="color" value="#f1ede4"></label>
+          <output class="ratio" id="ratio" for="ink paper"></output>
+        </fieldset>
+        <fieldset class="controls" id="letter" hidden><legend>调整字形</legend>
+          <p>切换标题字体，再逐级改变字号，看看目光是否仍先落在标题上。</p>
+          <label for="family">标题字体<select id="family"><option value="serif">宋体</option><option value="sans">黑体</option></select></label>
+          <label for="size">标题字号 <output id="size-value" for="size">32 px</output></label>
+          <input id="size" type="range" min="20" max="48" value="32">
+        </fieldset>
+        <div class="lab-footer"><button type="button" id="reset">重置本项实验</button><label><input type="checkbox" id="original"> 对照原稿</label></div>
+      </div>
+      <div>
+        <div class="preview-title" id="preview-title" aria-live="polite">当前样稿</div>
+        <div id="sample" class="sample"><small>见微 · 排版手记</small><h3>把空白也算进去。</h3><p>相邻的文字容易被读成一组。拉开标题与正文的距离，再慢慢收拢，找一找两者既有区别、又属于同一组的位置。</p></div>
+      </div>
+    </div>
   </div>
-  <div id="sample" class="sample"><small>见微 · 排版手记</small><h3>把空白也算进去。</h3><p>相邻的文字容易被读成一组。拉开标题与正文的距离，再慢慢收拢，找一找两者既有区别、又属于同一组的位置。</p></div>
 </section>
 </main>
 <footer id="about"><div class="wrap"><p>见微 · 一本关于日常设计的观察手记</p><a class="text-link" href="#top">回到封面</a></div></footer>
@@ -214,18 +264,60 @@ if (brush) {
     brush.stroke();
   }
 }
-const slider = document.querySelector('#spacing');
+const panels = [...document.querySelectorAll('.controls')];
+const modes = document.querySelector('.modes');
+const original = document.querySelector('#original');
 const sample = document.querySelector('#sample');
-const readout = document.querySelector('#spacing-value');
-function updateSpacing() {
-  sample.style.gap = slider.value + 'px';
-  readout.value = slider.value + ' px';
+const title = sample.querySelector('h3');
+const copy = sample.querySelector('p');
+const fields = [...document.querySelectorAll('.controls input, .controls select')];
+const defaults = Object.fromEntries(fields.map(field => [field.id, field.value]));
+
+function luminance(hex) {
+  const linear = hex.slice(1).match(/../g).map(pair => {
+    const channel = parseInt(pair, 16) / 255;
+    return channel <= .04045 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4;
+  });
+  return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
 }
-slider.addEventListener('input', updateSpacing);
-document.querySelector('#reset').addEventListener('click', () => {
-  slider.value = 24;
-  updateSpacing();
+
+function renderSample() {
+  const settings = Object.fromEntries(fields.map(field => [field.id, field.value]));
+  const view = original.checked ? defaults : settings;
+  sample.style.gap = view.spacing + 'px';
+  sample.style.padding = view.inset + 'px';
+  sample.style.backgroundColor = view.paper;
+  sample.style.color = view.ink;
+  copy.style.color = 'inherit';
+  title.style.fontFamily = view.family === 'serif' ? 'var(--serif)' : 'inherit';
+  title.style.fontSize = view.size + 'px';
+  for (const key of ['spacing', 'inset', 'size']) {
+    document.getElementById(key + '-value').value = settings[key] + ' px';
+  }
+  const light = luminance(settings.paper);
+  const dark = luminance(settings.ink);
+  const ratio = (Math.max(light, dark) + .05) / (Math.min(light, dark) + .05);
+  document.querySelector('#ratio').value = '所选配色对比度 ' + ratio.toFixed(2) + ' ∶ 1';
+  document.querySelector('#preview-title').textContent = original.checked ? '原稿对照' : '当前样稿';
+}
+
+modes.addEventListener('change', event => {
+  for (const panel of panels) panel.hidden = panel.id !== event.target.value;
 });
+for (const field of fields) {
+  field.addEventListener('input', () => {
+    original.checked = false;
+    renderSample();
+  });
+}
+original.addEventListener('change', renderSample);
+document.querySelector('#reset').addEventListener('click', () => {
+  const active = panels.find(panel => !panel.hidden);
+  for (const field of active.querySelectorAll('input, select')) field.value = defaults[field.id];
+  original.checked = false;
+  renderSample();
+});
+renderSample();
 </script>
 </body>
 </html>
