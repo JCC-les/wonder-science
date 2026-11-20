@@ -101,6 +101,29 @@ article p, .section p { color:var(--muted); line-height:1.9 }
 .lab-footer { display:flex; flex-wrap:wrap; align-items:center; gap:15px; border-top:1px solid var(--rule); padding-top:16px; margin-top:15px }
 .lab-footer input { accent-color:var(--red) }
 .preview-title { margin-bottom:10px; color:var(--muted); font-size:.9rem }
+.modes { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)) }
+.modes label { min-width:0 }
+.swatch-grid {
+  display:grid;
+  gap:6px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border:1px solid #8886;
+}
+.swatch-grid i {
+  height:clamp(32px,4.5vw,58px);
+  background:linear-gradient(var(--direction,90deg),
+    var(--ground) 0 var(--ground-end),
+    var(--secondary) var(--ground-end) var(--secondary-end),
+    var(--accent) var(--secondary-end) 100%);
+}
+.swatch-grid i:nth-child(2n) { --direction:0deg }
+.swatch-grid i:nth-child(3n) { --direction:270deg }
+.swatch-grid i:last-child { --direction:180deg }
+.sample blockquote {
+  margin:0; border-inline-start:2px solid currentColor; padding-inline-start:.8em;
+  font:500 1.05rem/1.5 var(--serif);
+}
+@media(max-width:760px) { .modes { grid-template-columns:repeat(3,minmax(0,1fr)) } }
 @media(max-width:760px) { .station { grid-template-columns:minmax(0,1fr) } }
 input[type=range] { width:100%; accent-color:var(--red); margin:12px 0 }
 button { font:inherit; background:transparent; color:var(--paper); border:1px solid var(--rule); padding:5px 14px; cursor:pointer }
@@ -184,12 +207,15 @@ footer p { color:var(--muted); font-size:.9rem }
 </section>
 <section class="section" id="experiment" aria-labelledby="lab-title">
   <div class="heading"><h2 id="lab-title">设计实验区</h2><span class="folio" lang="en">Design lab</span></div>
-  <p>在同一张样稿上调配色、改字形、挪间距。切换实验时，改动会叠加在样稿上。</p>
+  <p>把这张排版手记当作设计草稿。每次改一个参数，再勾选「对照原稿」观察差别。</p>
   <div class="bench">
     <fieldset class="modes"><legend class="sr">选择实验</legend>
       <label><input class="sr" type="radio" name="mode" value="space" checked><span>版式留白</span></label>
       <label><input class="sr" type="radio" name="mode" value="palette"><span>配色对比</span></label>
       <label><input class="sr" type="radio" name="mode" value="letter"><span>字体排印</span></label>
+      <label><input class="sr" type="radio" name="mode" value="grid-study"><span>网格构图</span></label>
+      <label><input class="sr" type="radio" name="mode" value="hierarchy"><span>视觉层级</span></label>
+      <label><input class="sr" type="radio" name="mode" value="proportion"><span>色彩占比</span></label>
     </fieldset>
     <div class="station">
       <div>
@@ -212,11 +238,35 @@ footer p { color:var(--muted); font-size:.9rem }
           <label for="size">标题字号 <output id="size-value" for="size">32 px</output></label>
           <input id="size" type="range" min="20" max="48" value="32">
         </fieldset>
+        <fieldset class="controls" id="grid-study" hidden><legend>重排六张色样</legend>
+          <p>先把六张色样排成一行，再改成两列。图案相同，分组与阅读节奏会怎样变化？</p>
+          <label for="columns">每行色样<select id="columns"><option value="3">三列</option><option value="2">两列</option><option value="6">六列</option></select></label>
+          <label for="gutter">格间距 <output id="gutter-value" for="gutter">6 px</output></label>
+          <input id="gutter" type="range" min="0" max="12" value="6">
+        </fieldset>
+        <fieldset class="controls" id="hierarchy" hidden><legend>安排阅读顺序</legend>
+          <p>让引句成为主角，看它能否先抓住目光。再调换图文顺序，比较从文字或图形进入这页手记的感受。</p>
+          <label for="focus-text">强调对象<select id="focus-text"><option value="headline">标题</option><option value="quotation">引句</option></select></label>
+          <label for="lead">图文顺序<select id="lead"><option value="text">文字在前</option><option value="image">色样在前</option></select></label>
+        </fieldset>
+        <fieldset class="controls" id="proportion" hidden><legend>分配三种色块的面积</legend>
+          <p>试试只用一小条朱红吸引目光，再把它扩大到一半。滑块只改变色样面积，纸色与墨色可在「配色对比」中调整。</p>
+          <label for="accent">强调色<input id="accent" type="color" value="#b64f39"></label>
+          <label for="accent-share">强调色占比 <output id="accent-share-value" for="accent-share">10%</output></label>
+          <input id="accent-share" type="range" min="0" max="60" value="10">
+          <output class="ratio" id="distribution" for="accent-share"></output>
+        </fieldset>
         <div class="lab-footer"><button type="button" id="reset">重置本项实验</button><label><input type="checkbox" id="original"> 对照原稿</label></div>
       </div>
       <div>
         <div class="preview-title" id="preview-title" aria-live="polite">当前样稿</div>
-        <div id="sample" class="sample"><small>见微 · 排版手记</small><h3>把空白也算进去。</h3><p>相邻的文字容易被读成一组。拉开标题与正文的距离，再慢慢收拢，找一找两者既有区别、又属于同一组的位置。</p></div>
+        <div id="sample" class="sample">
+          <small>见微 · 排版手记</small>
+          <h3>把空白也算进去。</h3>
+          <div id="swatches" class="swatch-grid" role="img" aria-label="六张三色几何色样"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <blockquote>停顿也有形状。</blockquote>
+          <p>相邻的文字容易被读成一组。拉开标题与正文的距离，再慢慢收拢，找一找两者既有区别、又属于同一组的位置。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -270,6 +320,8 @@ const original = document.querySelector('#original');
 const sample = document.querySelector('#sample');
 const title = sample.querySelector('h3');
 const copy = sample.querySelector('p');
+const quotation = sample.querySelector('blockquote');
+const swatches = document.getElementById('swatches');
 const fields = [...document.querySelectorAll('.controls input, .controls select')];
 const defaults = Object.fromEntries(fields.map(field => [field.id, field.value]));
 
@@ -279,6 +331,12 @@ function luminance(hex) {
     return channel <= .04045 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4;
   });
   return .2126 * linear[0] + .7152 * linear[1] + .0722 * linear[2];
+}
+
+function colorShares(accentPercentage) {
+  const accent = Number(accentPercentage);
+  const ink = Math.round((100 - accent) / 3);
+  return { paper: 100 - ink - accent, ink, accent };
 }
 
 function renderSample() {
@@ -291,7 +349,27 @@ function renderSample() {
   copy.style.color = 'inherit';
   title.style.fontFamily = view.family === 'serif' ? 'var(--serif)' : 'inherit';
   title.style.fontSize = view.size + 'px';
-  for (const key of ['spacing', 'inset', 'size']) {
+  const quoteLeads = view['focus-text'] === 'quotation';
+  quotation.style.fontSize = quoteLeads ? (Number(view.size) * 1.2) + 'px' : '1.05rem';
+  quotation.style.fontWeight = quoteLeads ? '700' : '400';
+  title.style.fontWeight = quoteLeads ? '400' : '700';
+  // Keep visual order and the reading order of assistive technology in sync.
+  if (view.lead === 'image') title.before(swatches);
+  else title.after(swatches);
+
+  const shares = colorShares(view['accent-share']);
+  swatches.style.gridTemplateColumns = 'repeat(' + view.columns + ', minmax(0, 1fr))';
+  swatches.style.gap = view.gutter + 'px';
+  swatches.style.setProperty('--ground', view.paper);
+  swatches.style.setProperty('--secondary', view.ink);
+  swatches.style.setProperty('--accent', view.accent);
+  swatches.style.setProperty('--ground-end', shares.paper + '%');
+  swatches.style.setProperty('--secondary-end', (shares.paper + shares.ink) + '%');
+  swatches.setAttribute('aria-label', '每行' + view.columns + '张色样，纸色占' + shares.paper + '%，墨色占' + shares.ink + '%，强调色占' + shares.accent + '%');
+  const chosenShares = colorShares(settings['accent-share']);
+  document.getElementById('accent-share-value').value = chosenShares.accent + '%';
+  document.getElementById('distribution').value = '纸色 ' + chosenShares.paper + '% · 墨色 ' + chosenShares.ink + '% · 强调色 ' + chosenShares.accent + '%';
+  for (const key of ['spacing', 'inset', 'size', 'gutter']) {
     document.getElementById(key + '-value').value = settings[key] + ' px';
   }
   const light = luminance(settings.paper);
